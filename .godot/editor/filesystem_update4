@@ -5,3 +5,4 @@ res://Items/potion.tres
 res://Player/Scripts/player.gd
 res://Gui/pause_menu/PauseMenu.tscn
 res://Gui/pause_menu/inventory/scripts/invenotry_ui.gd
+res://Gui/pause_menu/inventory/scripts/inventory_slot_ui.gd
