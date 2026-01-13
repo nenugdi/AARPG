@@ -11,5 +11,6 @@ func use()->bool: #根据效果数组，执行物品使用的特效
 	if effects.size() == 0:
 		return false
 	for e in effects:
-		e.use()
+		if e :
+			e.use()
 	return true

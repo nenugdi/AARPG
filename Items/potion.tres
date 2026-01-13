@@ -8,6 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_se85w"]
 script = ExtResource("2_yhh2t")
+heal_amount = 2
 audio = ExtResource("3_cvo6j")
 metadata/_custom_type_script = "uid://cndofqyqvwand"
 
@@ -20,5 +21,5 @@ script = ExtResource("1_hw0jr")
 name = "Potion"
 description = "红色药水回复生命值"
 texture = SubResource("AtlasTexture_t8xv6")
-effects = Array[ExtResource("1_pw2eo")]([SubResource("Resource_se85w")])
+effects = Array[ExtResource("1_pw2eo")]([SubResource("Resource_se85w"), null])
 metadata/_custom_type_script = "uid://lnjbqj0pkapi"

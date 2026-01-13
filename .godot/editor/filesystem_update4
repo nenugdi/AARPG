@@ -6,3 +6,6 @@ res://Player/Scripts/player.gd
 res://Gui/pause_menu/PauseMenu.tscn
 res://Gui/pause_menu/inventory/scripts/invenotry_ui.gd
 res://Gui/pause_menu/inventory/scripts/inventory_slot_ui.gd
+res://Items/apple.tres
+res://Items/scripts/item_data.gd
+res://Levels/Area01/01.tscn

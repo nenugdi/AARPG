@@ -40,5 +40,7 @@ func _on_pressed() -> void:
 			label.text = str(slot_data.quantity)
 			if slot_data.quantity>0: #onpress不会触发pausemenu的刷新，所有使用道具后仍然维持焦点。
 				self.grab_focus()
+			else:
+				get_parent_control().grab_focus()
 				
 	pass # Replace with function body.
