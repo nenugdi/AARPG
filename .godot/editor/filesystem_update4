@@ -1,0 +1,5 @@
+res://Player/player.tscn
+res://Items/gem.tres
+res://Items/stone.tres
+res://Items/potion.tres
+res://Player/Scripts/player.gd

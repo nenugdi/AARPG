@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://di0irn74eq3rt"]
+
+[ext_resource type="Script" uid="uid://dw7oyn05vou2g" path="res://Levels/Scripts/level.gd" id="1_22ele"]
+[ext_resource type="PackedScene" uid="uid://t5lmgyjb5dem" path="res://TileMaps/grass-01.tscn" id="1_vbl6q"]
+[ext_resource type="PackedScene" uid="uid://n8pccq8kiynx" path="res://Levels/PlayerSpawn.tscn" id="2_chooo"]
+[ext_resource type="PackedScene" uid="uid://cc7dgrwakcy08" path="res://Levels/LevelTransition.tscn" id="4_4t7i1"]
+[ext_resource type="PackedScene" uid="uid://c14v8ysjenavm" path="res://Items/item_pickup/item_pickup.tscn" id="5_8itkk"]
+[ext_resource type="Resource" uid="uid://eddky7n2put5" path="res://Items/gem.tres" id="6_xhij5"]
+[ext_resource type="Resource" uid="uid://bt572c3vuy326" path="res://Items/stone.tres" id="7_th3kk"]
+[ext_resource type="Resource" uid="uid://cw4yeaccy4a7v" path="res://Items/potion.tres" id="8_b60gt"]
+
+[node name="01" type="Node2D"]
+script = ExtResource("1_22ele")
+
+[node name="Grass01" parent="." instance=ExtResource("1_vbl6q")]
+layer_0/tile_data = PackedInt32Array(0, 786432, 7, 65536, 65536, 7, 131072, 65536, 7, 196608, 65536, 7, 262144, 65536, 7, 327680, 65536, 7, 393216, 65536, 7, 458752, 655360, 5, 524288, 720896, 4, 1, 851968, 7, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, 262145, 0, 0, 327681, 0, 0, 393217, 0, 0, 458753, 0, 0, 524289, 786432, 4, 2, 720896, 7, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, 262146, 0, 0, 327682, 0, 0, 393218, 0, 0, 458754, 0, 0, 524290, 851968, 4, 3, 786432, 7, 65539, 0, 0, 131075, 0, 0, 196611, 0, 0, 262147, 0, 0, 327683, 0, 0, 393219, 0, 0, 458755, 0, 0, 524291, 917504, 4, 4, 851968, 7, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 262148, 0, 0, 327684, 0, 0, 393220, 0, 0, 458756, 0, 0, 524292, 655360, 4, 5, 720896, 7, 65541, 0, 0, 131077, 0, 0, 196613, 0, 0, 262149, 0, 0, 327685, 0, 0, 393221, 0, 0, 458757, 0, 0, 524293, 917504, 4, 6, 786432, 7, 65542, 0, 0, 131078, 0, 0, 196614, 0, 0, 262150, 0, 0, 327686, 0, 0, 393222, 0, 0, 458758, 0, 0, 524294, 0, 0, 7, 851968, 7, 65543, 0, 0, 131079, 0, 0, 196615, 0, 0, 262151, 0, 0, 327687, 0, 0, 393223, 0, 0, 458759, 0, 0, 524295, 0, 0, 8, 720896, 7, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 262152, 0, 0, 327688, 0, 0, 393224, 0, 0, 458760, 0, 0, 524296, 655360, 4, 9, 786432, 7, 65545, 0, 0, 131081, 0, 0, 196617, 0, 0, 262153, 0, 0, 327689, 0, 0, 393225, 0, 0, 458761, 0, 0, 524297, 851968, 4, 10, 851968, 7, 65546, 0, 0, 131082, 0, 0, 196618, 0, 0, 262154, 0, 0, 327690, 0, 0, 393226, 0, 0, 458762, 0, 0, 524298, 720896, 4, 11, 720896, 7, 65547, 0, 0, 131083, 0, 0, 196619, 0, 0, 262155, 0, 0, 327691, 65536, 1, 393227, 0, 0, 458763, 0, 0, 524299, 786432, 4, 12, 786432, 7, 65548, 0, 0, 131084, 0, 0, 196620, 0, 0, 262156, 0, 0, 327692, 0, 0, 393228, 0, 0, 458764, 0, 0, 524300, 851968, 4, 13, 851968, 7, 65549, 0, 0, 131085, 0, 0, 196621, 0, 0, 262157, 0, 0, 327693, 0, 0, 393229, 0, 0, 458765, 0, 0, 524301, 917504, 4, 14, 655360, 4, 65550, 655360, 5, 131086, 655360, 6, 196622, 655360, 7, 262158, 65536, 1, 327694, 65536, 1, 393230, 655360, 4, 458766, 655360, 5, 524302, 655360, 4, 15, 720896, 4, 65551, 720896, 5, 131087, 720896, 6, 196623, 720896, 7, -65536, 786432, 6, -65535, 851968, 6, -65534, 720896, 6, -65533, 786432, 6, -65532, 851968, 6, -65531, 720896, 6, -65530, 786432, 6, -65529, 851968, 6, -65528, 720896, 6, -65527, 786432, 6, -65526, 851968, 6, -65525, 720896, 6, -65524, 786432, 6, -65523, 851968, 6, -65522, 720896, 6, -65521, 786432, 6, 524303, 0, 0, 458767, 0, 0, 393231, 786432, 4, 327695, 0, 0, 262159, 0, 0)
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("2_chooo")]
+position = Vector2(241, 135)
+
+[node name="LevelTransition" parent="." instance=ExtResource("4_4t7i1")]
+position = Vector2(224, 272)
+scale = Vector2(0.9595078, 1)
+level = "uid://dk044linwrktm"
+side = 3
+snap_to_grid = true
+
+[node name="LevelTransition2" parent="." instance=ExtResource("4_4t7i1")]
+position = Vector2(480, 160)
+level = "uid://dhgqomm2xp6gj"
+side = 1
+snap_to_grid = true
+
+[node name="ItemPickup" parent="." instance=ExtResource("5_8itkk")]
+position = Vector2(77, 92)
+item_data = ExtResource("6_xhij5")
+
+[node name="ItemPickup2" parent="." instance=ExtResource("5_8itkk")]
+position = Vector2(146, 58)
+item_data = ExtResource("7_th3kk")
+
+[node name="ItemPickup3" parent="." instance=ExtResource("5_8itkk")]
+position = Vector2(78, 187)
+item_data = ExtResource("8_b60gt")

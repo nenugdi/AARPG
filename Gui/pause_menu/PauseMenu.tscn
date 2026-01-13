@@ -1,0 +1,123 @@
+[gd_scene load_steps=8 format=3 uid="uid://7qgtmt43b2rn"]
+
+[ext_resource type="Script" uid="uid://dbx2u70t64p8u" path="res://Gui/pause_menu/pause_menu.gd" id="1_t4kp0"]
+[ext_resource type="Texture2D" uid="uid://dfnejvxbffda4" path="res://Items/sprites/items.png" id="2_2rl1b"]
+[ext_resource type="PackedScene" uid="uid://bmhdevn0urorx" path="res://Gui/pause_menu/inventory/InventorySlot.tscn" id="3_4gaxo"]
+[ext_resource type="Script" uid="uid://cydogfj13wm46" path="res://Gui/pause_menu/inventory/scripts/invenotry_ui.gd" id="3_8neac"]
+[ext_resource type="Resource" uid="uid://u7feyror3ddy" path="res://Gui/pause_menu/inventory/player_inventory.tres" id="4_6cud4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gaxo"]
+atlas = ExtResource("2_2rl1b")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8neac"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = SubResource("AtlasTexture_4gaxo")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_t4kp0")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_left = 7.0
+offset_top = 56.0
+offset_right = 203.0
+offset_bottom = 144.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_8neac")
+
+[node name="GridContainer" type="GridContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+columns = 5
+script = ExtResource("3_8neac")
+data = ExtResource("4_6cud4")
+
+[node name="InventorySlot" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_4gaxo")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_4gaxo")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -16.0
+offset_right = 51.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "paused"
+
+[node name="LabelItemDescription" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = 132.0
+offset_right = 212.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "paused"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.132
+anchor_top = 0.887
+anchor_right = 0.132
+anchor_bottom = 0.887
+offset_left = 11.72
+offset_top = 185.52
+offset_right = 108.72
+offset_bottom = 216.52
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_Save" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="Button_Load" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Load
+"
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47, 0.47, 0.47, 0.44313726)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+max_polyphony = 4

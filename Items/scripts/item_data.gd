@@ -1,0 +1,15 @@
+class_name ItemData extends Resource
+
+@export var name : String = ""
+@export_multiline var description : String = ""
+@export var texture : Texture2D
+
+@export_category("Item Use Effects")
+@export var effects : Array[ ItemEffect ]
+
+func use()->bool: #根据效果数组，执行物品使用的特效
+	if effects.size() == 0:
+		return false
+	for e in effects:
+		e.use()
+	return true

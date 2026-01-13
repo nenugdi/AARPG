@@ -1,0 +1,12 @@
+class_name HeartGui extends Control
+
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
+var value : int = 2: #2满血，1半颗心
+	set(_value):
+		value = _value
+		update_sprite()
+		
+
+func update_sprite()->void:
+	sprite_2d.frame = value
