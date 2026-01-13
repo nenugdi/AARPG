@@ -1,4 +1,4 @@
-class_name InventoryUI extends Control #GridContainer对应脚本
+class_name InventoryUI extends Control #GridContainer对应的脚本
 
 const INVENTORY_SLOT = preload("uid://bmhdevn0urorx") #InventorySlot场景，也就是道具按钮
 
