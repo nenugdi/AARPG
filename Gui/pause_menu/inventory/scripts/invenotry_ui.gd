@@ -22,6 +22,7 @@ func update_inventory()->void:
 		var new_slot = INVENTORY_SLOT.instantiate()
 		add_child(new_slot)
 		new_slot.slot_data = s
+	#await get_tree().process_frame 
 	get_child(0).grab_focus() #每次打开菜单，焦点默认锁定第一个物品
 	
 
