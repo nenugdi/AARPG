@@ -1,8 +1,8 @@
 class_name InventoryUI extends Control #GridContainer对应的脚本
 
-const INVENTORY_SLOT = preload("uid://bmhdevn0urorx") #InventorySlot场景，也就是道具按钮
+const INVENTORY_SLOT = preload("uid://bmhdevn0urorx") #InventorySlot场景，用于生成物品按钮
 
-@export var data : InventoryData #InventoryData默认数组SlotData大小为10
+@export var data : InventoryData #InventoryData类型包含slots数组，大小为10也就是物品数组
 
 func _ready() -> void:
 	PauseMenu.shown.connect(update_inventory) #PauseMenu是全局类

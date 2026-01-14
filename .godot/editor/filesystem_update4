@@ -1,11 +1,7 @@
-res://Player/player.tscn
+res://00_Globals/global_save_manager.gd
+res://Gui/pause_menu/inventory/scripts/inventory_data.gd
+res://Gui/pause_menu/PauseMenu.tscn
 res://Items/gem.tres
 res://Items/stone.tres
 res://Items/potion.tres
-res://Player/Scripts/player.gd
-res://Gui/pause_menu/PauseMenu.tscn
-res://Gui/pause_menu/inventory/scripts/invenotry_ui.gd
-res://Gui/pause_menu/inventory/scripts/inventory_slot_ui.gd
 res://Items/apple.tres
-res://Items/scripts/item_data.gd
-res://Levels/Area01/01.tscn
