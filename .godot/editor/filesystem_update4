@@ -1,7 +1,10 @@
-res://00_Globals/global_save_manager.gd
-res://Gui/pause_menu/inventory/scripts/inventory_data.gd
-res://Gui/pause_menu/PauseMenu.tscn
-res://Items/gem.tres
-res://Items/stone.tres
-res://Items/potion.tres
+res://Enemies/Slime/slime.tscn
 res://Items/apple.tres
+res://Items/gem.tres
+res://Enemies/Scripts/states/enemy_state_destory.gd
+res://Items/item_pickup/item_pickup.tscn
+res://Items/item_pickup/item_pickup.gd
+res://Props/Plants/Plant.tscn
+res://Items/stone.tres
+res://Props/Plants/plant.gd
+res://Items/potion.tres

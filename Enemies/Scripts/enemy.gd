@@ -5,7 +5,7 @@ signal enemy_damage( hurt_box : HurtBox )
 signal enemy_destory( hurt_box : HurtBox )
 const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 
-@export var hp : int = 4
+@export var hp : int = 3
 
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO

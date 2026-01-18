@@ -1,5 +1,5 @@
 @tool
-class_name ItemPickup extends Node
+class_name ItemPickup extends CharacterBody2D
 
 @export var item_data : ItemData : set = _set_item_data
 
@@ -13,6 +13,19 @@ func _ready()->void:
 		return
 	#area_2d.body_entered.connect(_on_area_2d_area_entered)
 		
+func _physics_process(delta: float) -> void:
+	if get_slide_collision_count() > 0:
+		var collision_info = get_slide_collision(0)
+		var normal = collision_info.get_normal()
+		#print("碰撞次数: ", get_slide_collision_count())
+		#完美弹性碰撞
+		velocity = velocity.bounce(normal)
+	velocity = velocity * 0.9
+	move_and_slide()
+
+	
+	
+	
 func _on_body_entered()->void:
 	pass
 

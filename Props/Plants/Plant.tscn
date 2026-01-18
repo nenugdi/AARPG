@@ -1,8 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyemkiexkjt3n"]
+[gd_scene load_steps=11 format=3 uid="uid://cyemkiexkjt3n"]
 
 [ext_resource type="Script" uid="uid://5sb8j60ui34q" path="res://Props/Plants/plant.gd" id="1_akllp"]
+[ext_resource type="Script" uid="uid://dda2scqsmvxjq" path="res://Enemies/Scripts/drop_data.gd" id="2_oun8e"]
 [ext_resource type="Texture2D" uid="uid://wqs6xmi1bn1e" path="res://Player/Sprites/Props.png" id="2_w3sfv"]
 [ext_resource type="PackedScene" uid="uid://dq8j354gfjmhs" path="res://GeneralNodes/HitBox/HitBox.tscn" id="3_oun8e"]
+[ext_resource type="Resource" uid="uid://bt572c3vuy326" path="res://Items/stone.tres" id="3_xyft2"]
+[ext_resource type="Resource" uid="uid://cw4yeaccy4a7v" path="res://Items/potion.tres" id="4_xyft2"]
+
+[sub_resource type="Resource" id="Resource_fdkln"]
+script = ExtResource("2_oun8e")
+item = ExtResource("3_xyft2")
+metadata/_custom_type_script = "uid://dda2scqsmvxjq"
+
+[sub_resource type="Resource" id="Resource_rnnc5"]
+script = ExtResource("2_oun8e")
+item = ExtResource("4_xyft2")
+max_amount = 3
+metadata/_custom_type_script = "uid://dda2scqsmvxjq"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_akllp"]
 size = Vector2(32, 32)
@@ -13,6 +27,7 @@ size = Vector2(21.485601, 29.793722)
 [node name="Plant" type="Node2D"]
 position = Vector2(0, -8)
 script = ExtResource("1_akllp")
+drops = Array[ExtResource("2_oun8e")]([SubResource("Resource_fdkln"), SubResource("Resource_rnnc5")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_w3sfv")
