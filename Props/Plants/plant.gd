@@ -14,7 +14,7 @@ func TakeDamage( hurt_box : HurtBox )->void:
 	queue_free()
 	
 
-
+#给植物添加物品掉落功能
 func drop_items()->void:
 	if drops.size()==0:
 		return
