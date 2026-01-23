@@ -8,7 +8,6 @@ var value : bool = false
 func _ready() -> void:
 	#print(_get_name())
 	get_value()
-	pass # Replace with function body.
 	
 
 func set_value()->void:

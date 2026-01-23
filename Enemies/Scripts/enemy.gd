@@ -15,12 +15,16 @@ var invlunerable : bool = false
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var hit_box: HitBox = $HitBox
 @onready var enemy_state_machine: EnemyStateMachine = $EnemyStateMachine
-
+@onready var is_live_data: PersistemDataHandler = $IsLive
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if is_live_data.value:
+		queue_free()
 	enemy_state_machine.initialize(self)
 	player = PlayerManager.player #这个player暂时没什么用，不知道作者为什么在Slime里创造一个player对象
 	hit_box.Damaged.connect( _take_damage )
+	#is_live_data.data_loaded.connect(set_enemy)
+	#set_enemy()
 	pass # Replace with function body.
 
 

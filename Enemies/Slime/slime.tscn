@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://btviui0k30xso"]
+[gd_scene load_steps=39 format=3 uid="uid://btviui0k30xso"]
 
 [ext_resource type="Texture2D" uid="uid://d3gmrr53er6t2" path="res://Enemies/Slime/Slime.png" id="1_byu67"]
 [ext_resource type="Script" uid="uid://h2t5u64enadn" path="res://Enemies/Scripts/enemy.gd" id="1_oij8y"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://dda2scqsmvxjq" path="res://Enemies/Scripts/drop_data.gd" id="12_nsi17"]
 [ext_resource type="Resource" uid="uid://eddky7n2put5" path="res://Items/gem.tres" id="13_vjyi2"]
 [ext_resource type="Resource" uid="uid://cqcublnkys3cv" path="res://Items/apple.tres" id="14_vjyi2"]
+[ext_resource type="PackedScene" uid="uid://ci17jfvv2ecay" path="res://GeneralNodes/PersistenDataHelper/persisten_data_handler.tscn" id="17_yynal"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2qn7y"]
 radius = 13.038404
@@ -851,3 +852,5 @@ hframes = 6
 libraries = {
 &"": SubResource("AnimationLibrary_67htc")
 }
+
+[node name="IsLive" parent="." instance=ExtResource("17_yynal")]

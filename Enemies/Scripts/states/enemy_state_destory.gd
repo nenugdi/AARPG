@@ -33,6 +33,7 @@ func Enter() ->void:
 	enemy.animation_player.animation_finished.connect(_on_animation_finished)
 	disable_hurt_box()
 	drop_items()
+	enemy.is_live_data.set_value()
 	
 func Exit()->void:
 	enemy.invlunerable = false
