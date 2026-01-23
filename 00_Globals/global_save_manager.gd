@@ -23,13 +23,6 @@ func save_game()->void:
 	update_scene_path()
 	update_item_data()
 	var file : = FileAccess.open(SAVE_PATH+SAVE_FILE,FileAccess.WRITE)
-	var dir = DirAccess.open("user://")
-	if dir == null:
-		push_error("❌ 无法访问 user://: " + error_string(DirAccess.get_open_error()))
-		return
-	if file == null:
-		var error = FileAccess.get_open_error()
-		push_error("❌ 文件打开失败: " + error_string(error))
 	#print("user:// 实际映射到: ", ProjectSettings.globalize_path("user://"))
 	var save_json = JSON.stringify(current_save)
 	file.store_line(save_json)
@@ -68,4 +61,15 @@ func update_scene_path()->void:
 			
 func update_item_data()->void:
 	current_save.items = PlayerManager.INVENTORY_DATA.get_save_data()
+	
+	
+func add_persistent_value( value : String )->void:
+	if check_persistent_value(value) == false:
+		current_save.persistence.append(value)
+	pass
+	
+func check_persistent_value( value : String )->bool:
+	var p = current_save.persistence as Array
+	return p.has(value)
+	
 	

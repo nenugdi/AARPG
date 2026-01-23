@@ -4,6 +4,7 @@ const PLAYER = preload("uid://l223k0nuf2s5")
 
 const INVENTORY_DATA : InventoryData = preload("uid://u7feyror3ddy")
 
+signal interact_pressed
 var player : Player
 var player_spawned : bool = false
 

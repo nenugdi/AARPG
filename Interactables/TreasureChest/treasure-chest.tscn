@@ -1,0 +1,252 @@
+[gd_scene load_steps=14 format=3 uid="uid://cbtn6765cg352"]
+
+[ext_resource type="Script" uid="uid://d1om85r6er45c" path="res://Interactables/TreasureChest/treasure_chest.gd" id="1_avjv6"]
+[ext_resource type="Texture2D" uid="uid://cfydk4b0jw0yy" path="res://Interactables/TreasureChest/treasure-chest.png" id="2_gkxf7"]
+[ext_resource type="Texture2D" uid="uid://dfnejvxbffda4" path="res://Items/sprites/items.png" id="3_ebwvl"]
+[ext_resource type="AudioStream" uid="uid://juddu5sh7cme" path="res://Interactables/TreasureChest/treasure-open.wav" id="4_gkxf7"]
+[ext_resource type="PackedScene" uid="uid://ci17jfvv2ecay" path="res://GeneralNodes/PersistenDataHelper/persisten_data_handler.tscn" id="5_ebwvl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pojo"]
+atlas = ExtResource("3_ebwvl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="Animation" id="Animation_ebwvl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ItemSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.28078747, -7.173009)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ItemSprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gkxf7"]
+resource_name = "closed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_cxagc"]
+resource_name = "open_chest"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_gkxf7")
+}],
+"times": PackedFloat32Array(0.13333334)
+}
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ItemSprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.53333336, 1.5),
+"transitions": PackedFloat32Array(0.5, 2, 1, 1),
+"update": 0,
+"values": [Vector2(-0.28078747, -7.173009), Vector2(-0.281, -60), Vector2(-0.281, -50), Vector2(-0.28078747, -7.173009)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ItemSprite2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.20400351, 0.3, 0.53333336, 0.8, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1.8582071, 1.8582071, 1.8582071, 1), Color(1, 1, 1, 1), Color(1.8582071, 1.8582071, 1.8582071, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5pojo"]
+resource_name = "opened"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cxagc"]
+_data = {
+&"RESET": SubResource("Animation_ebwvl"),
+&"closed": SubResource("Animation_gkxf7"),
+&"open_chest": SubResource("Animation_cxagc"),
+&"opened": SubResource("Animation_5pojo")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebwvl"]
+size = Vector2(28, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkxf7"]
+size = Vector2(30, 16)
+
+[node name="TreasureChest" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_avjv6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
+texture = ExtResource("2_gkxf7")
+hframes = 2
+
+[node name="ItemSprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-0.28078747, -7.173009)
+scale = Vector2(1.1699507, 1.051687)
+texture = SubResource("AtlasTexture_5pojo")
+
+[node name="Label" type="Label" parent="ItemSprite2D"]
+offset_left = 0.2399993
+offset_top = -9.344027
+offset_right = 40.239998
+offset_bottom = 13.655973
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_cxagc")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_ebwvl")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_gkxf7")
+debug_color = Color(0, 1, 0, 0.41960785)
+
+[node name="IsOpen" parent="." instance=ExtResource("5_ebwvl")]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_interact_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_interact_area_exited"]
