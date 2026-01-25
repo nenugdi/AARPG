@@ -18,6 +18,7 @@ var invlunerable : bool = false
 @onready var is_live_data: PersistemDataHandler = $IsLive
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#如果is_live_data: PersistemDataHandler 有值，说明之前被存档过，也就是被击杀，无需生成这个敌人
 	if is_live_data.value:
 		queue_free()
 	enemy_state_machine.initialize(self)
@@ -42,12 +43,12 @@ func SetDirection(_new_direction : Vector2)->bool:
 	direction = _new_direction
 	if direction == Vector2.ZERO:
 		return false
-   
 	var direction_id : int = int(round( (direction+cardinal_direction*0.1).angle()/TAU * DIR_4.size()))
 	var new_dir : Vector2 = DIR_4[ direction_id ]
 	if new_dir == cardinal_direction:
 		return false
 	cardinal_direction = new_dir
+	direction_changed.emit(cardinal_direction)
 	#DirectionChanged.emit( new_dir )
 	$Sprite2D.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
 	return true

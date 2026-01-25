@@ -28,11 +28,11 @@ func Enter() ->void:
 	_direction = enemy.global_position.direction_to( _damage_position )
 	enemy.SetDirection( _direction )
 	enemy.velocity = _direction * -knockback_speed #注意是负值，因为上面方向是面朝player，所以移动反着走
-	#print("des")
 	enemy.UpdateAnimation( anim_name )
 	enemy.animation_player.animation_finished.connect(_on_animation_finished)
 	disable_hurt_box()
 	drop_items()
+	#此处将敌人死亡信息写入存档文件
 	enemy.is_live_data.set_value()
 	
 func Exit()->void:
@@ -74,8 +74,8 @@ func drop_items()->void:
 			drop.item_data = drops[i].item
 			enemy.get_parent().add_child(drop)
 			drop.global_position = enemy.global_position
-			print("eneny",enemy.velocity)
+			#print("eneny",enemy.velocity)
 			drop.velocity = enemy.velocity.rotated(randf_range(-1.5,1.5)) * randf_range(0.9,2.5)#rotated大约+-90度角
-			print("drop",drop.velocity)
+			#print("drop",drop.velocity)
 		
 	

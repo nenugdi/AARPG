@@ -40,6 +40,7 @@ func ChangeState(new_state : State) ->void:
 		current_state.Exit()
 	prev_state = current_state
 	current_state = new_state
+	
 	current_state.Enter()
 	
 func _unhandled_input(event: InputEvent) -> void:

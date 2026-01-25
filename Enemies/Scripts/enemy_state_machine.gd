@@ -38,7 +38,7 @@ func ChangeState(new_state : EnemyState) ->void:
 	if new_state == null || new_state == current_state:
 		return
 	if current_state:
-		current_state.Exit()
+		current_state.Exit() #把状态的一些设置复原，比如enter时打开了hurtbox，退出时关闭
 	prev_state = current_state
 	current_state = new_state
 	current_state.Enter()

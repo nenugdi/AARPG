@@ -1,9 +1,10 @@
+Node
+CollisionPolygon2D
+Area2D
 Button
 TextureButton
-Node
 AnimationPlayer
 CollisionShape2D
-Area2D
 StaticBody2D
 AudioStreamPlayer2D
 Label
@@ -11,4 +12,3 @@ Sprite2D
 CharacterBody2D
 Control
 AudioStreamPlayer
-HBoxContainer
