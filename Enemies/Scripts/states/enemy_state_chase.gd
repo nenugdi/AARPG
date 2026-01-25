@@ -13,13 +13,14 @@ class_name EnemyStateChase extends EnemyState
 var _timer : float = 0
 var _direction : Vector2
 var _can_see_player : bool = false
+#自己添加，显示可视区域
+@onready var collision_polygon: CollisionPolygon2D = $"../../VisionArea/CollisionPolygon2D"
 
 #what happen when enemy init this statew
 func Init()->void:
 	if vision_area:
 		vision_area.player_entered.connect(_on_player_enter)
 		vision_area.player_exited.connect(_on_player_exit)
-	pass
 
 func Enter() ->void:
 	_timer = state_aggro_duration
