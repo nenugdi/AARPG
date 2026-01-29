@@ -3,11 +3,11 @@ class_name LevelTransition extends Area2D
 
 enum SIDE{LEFT,RIGHT,TOP,BOTTOM}
 
-@export_file( "*.tscn" ) var level
+@export_file( "*.tscn" ) var level  #赋值，进入哪个场景
 @export var target_transiton_area : String = "LevelTransition"
+@export var center_player : bool = false 
 
 @export_category("COllision Area Settings")
-
 @export_range(1,12,1,"or_greater") var size : int =2:
 	set( _value ):
 		size = _value
@@ -45,22 +45,21 @@ func _player_entered( _p : Node2D) ->void:
 	pass
 
 func _place_player()->void:
+	#检查一下前一场景的LeverTransition的target_transiton_area名字是不是和自己名字一样，只有一样才能设定玩家位置。
 	if name != LevelManager.target_transition:
 		return
 	PlayerManager.set_player_position(global_position + LevelManager.position_offset)
-
 #此函数的目的是记录玩家和门的相对置，将其传回LevelManger保存，进入新场景后，玩家和门相对位置保持不变
 func get_offset()->Vector2:
-	var diff: Vector2 =  PlayerManager.player.global_position - global_position
 	match side: #至于加减16，是因为吸附最小单位是16*16，这样可以避免玩家传送过来后又进入这个门，反复切换
 		SIDE.LEFT:
-			return Vector2(-16, diff.y)
+			return Vector2(-16, 0)
 		SIDE.RIGHT:
-			return Vector2(16, diff.y)
+			return Vector2(16, 0)
 		SIDE.TOP:
-			return Vector2(diff.x, -16)
+			return Vector2(0, -16)
 		SIDE.BOTTOM:
-			return Vector2(diff.x, 16)
+			return Vector2(0, 16)
 		_:
 			return Vector2.ZERO
 	

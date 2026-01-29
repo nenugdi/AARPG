@@ -1,9 +1,11 @@
 C:/Users/nenug/Documents/RPG
+res://Levels/Area01
+res://Interactables/Dungeon/scripts
+res://Levels/Dungeon01
 res://Items
 res://Gui/pause_menu/inventory
 res://00_Globals
 res://Gui/pause_menu
-res://Levels/Area01
 res://Gui/scene_transition
 res://Gui/Player_Hud
 res://Enemies/Scripts/states

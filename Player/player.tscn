@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://l223k0nuf2s5"]
+[gd_scene load_steps=46 format=3 uid="uid://l223k0nuf2s5"]
 
 [ext_resource type="Script" uid="uid://bjldvhkym83cf" path="res://Player/Scripts/player.gd" id="1_dkpta"]
 [ext_resource type="Texture2D" uid="uid://crtyiurx6f018" path="res://Player/Sprites/PlayerSprite02.png" id="2_lfmf2"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://dgwh30buf24h8" path="res://Player/Scripts/PlayerCamera.gd" id="12_8viyr"]
 [ext_resource type="Script" uid="uid://2f18jxbb7uho" path="res://Player/Scripts/playerinteractionshost.gd" id="13_sm0op"]
 [ext_resource type="PackedScene" uid="uid://dq8j354gfjmhs" path="res://GeneralNodes/HitBox/HitBox.tscn" id="14_76lrf"]
+[ext_resource type="Script" uid="uid://dxkwjkv37qwkt" path="res://Player/Scripts/push_area.gd" id="14_lfmf2"]
 [ext_resource type="AudioStream" uid="uid://b4ynvst15xn6q" path="res://Player/Audio/hit_player.wav" id="15_efx54"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_edjgo"]
@@ -535,6 +536,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dkpta"]
 size = Vector2(31, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfmf2"]
+size = Vector2(25.375, 23.5)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_bwjto"]
 
 [sub_resource type="Animation" id="Animation_5tmop"]
@@ -612,7 +616,6 @@ wall_min_slide_angle = 0.17453292
 script = ExtResource("1_dkpta")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_edjgo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -645,6 +648,7 @@ monitoring = false
 damage = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/AttackHurtBox"]
+position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_nvl01")
 debug_color = Color(0.93556064, 0.25539353, 0, 0.41960785)
 
@@ -686,16 +690,30 @@ max_polyphony = 4
 script = ExtResource("13_sm0op")
 
 [node name="Area2D" type="Area2D" parent="Interactions"]
+position = Vector2(0, 2)
 collision_layer = 4
 collision_mask = 0
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Area2D"]
-position = Vector2(1.5, 10)
+position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_dkpta")
+debug_color = Color(0.39920855, 0.70196074, 0, 0.41960785)
+
+[node name="PushArea" type="Area2D" parent="Interactions"]
+position = Vector2(0, 1)
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+script = ExtResource("14_lfmf2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/PushArea"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_lfmf2")
+debug_color = Color(0.0025000006, 0.0064583304, 0.05, 0.6039216)
 
 [node name="HitBox" parent="." instance=ExtResource("14_76lrf")]
-position = Vector2(0, -3)
+position = Vector2(0, -11)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
@@ -706,3 +724,6 @@ shape = SubResource("CircleShape2D_bwjto")
 libraries = {
 &"": SubResource("AnimationLibrary_7ahtn")
 }
+
+[connection signal="body_entered" from="Interactions/PushArea" to="Interactions/PushArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Interactions/PushArea" to="Interactions/PushArea" method="_on_body_exited"]
