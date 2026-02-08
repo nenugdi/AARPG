@@ -1,6 +1,8 @@
 @tool
 class_name ItemPickup extends CharacterBody2D
 
+signal  picked_up
+
 @export var item_data : ItemData : set = _set_item_data
 
 @onready var area_2d: Area2D = $Area2D
@@ -24,23 +26,19 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	
-	
-	
-func _on_body_entered()->void:
-	pass
-
 #此处并没有按教程处理，直接检查器的body_entered(body: Node2D)信号连接函数
 func _on_area_2d_body_entered(b) -> void:
 	if b is Player:
 		if item_data:
-			if PlayerManager.INVENTORY_DATA.add_item(item_data) == true:
+			if PlayerManager.INVENTORY_DATA.add_item(item_data) == true: #调用函数additem加入背包
 				item_picked_up()
 	pass 
 
 func item_picked_up()->void:
-	#area_2d.body_entered.disconnect(_on_area_2d_area_entered) #主动断开连接，防止重复拾取
+	area_2d.body_entered.disconnect(_on_area_2d_body_entered) #主动断开连接，防止重复拾取
 	audio_stream_player_2d.play()
 	self.visible = false #不然要等到音效结束才消失
+	picked_up.emit()
 	await audio_stream_player_2d.finished
 	queue_free()
 	pass

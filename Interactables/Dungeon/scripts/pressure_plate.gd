@@ -26,7 +26,6 @@ func _ready() -> void:
 	off_rect = sprite_2d.region_rect #获取按压板的矩形框数据
 	pass # Replace with function body.
 
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	bodies += 1
 	check_is_activated()
@@ -41,7 +40,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func check_is_activated()->void:
 	if bodies>0 and is_active == false:
 		is_active = true
-		sprite_2d.region_rect.position.x = off_rect.position.x - 32 #在图集中左边是压力板按压后状态
+		sprite_2d.region_rect.position.x = off_rect.position.x - 32 #在图集中 x-32坐标是压力板按压后状态
 		play_audio(audio_active)
 		activated.emit()
 	elif bodies<=0 and is_active == true:

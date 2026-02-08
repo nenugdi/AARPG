@@ -34,6 +34,7 @@ position = Vector2(321, 129)
 
 [node name="LevelTransition2" parent="." instance=ExtResource("4_6gmk0")]
 position = Vector2(257, 45)
+level = "uid://c7sbkk4bf1e6l"
 side = 2
 
 [connection signal="activated" from="PressurePlate" to="BarredDoor" method="open_door"]

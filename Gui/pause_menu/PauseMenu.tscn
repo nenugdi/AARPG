@@ -54,6 +54,9 @@ layout_mode = 2
 [node name="InventorySlot2" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_4gaxo")]
 layout_mode = 2
 
+[node name="InventorySlot3" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_4gaxo")]
+layout_mode = 2
+
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = 8

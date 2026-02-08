@@ -6,7 +6,7 @@ var direction : Vector2 = Vector2.ZERO
 const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var effect_animation_player: AnimationPlayer = $EffectAnimationPlayer
-@onready var player_hud: CanvasLayer = $PlayerHud
+
 
 @onready var hit_box: HitBox = $HitBox
 

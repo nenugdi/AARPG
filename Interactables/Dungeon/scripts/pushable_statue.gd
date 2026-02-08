@@ -10,17 +10,15 @@ var push_direction : Vector2 = Vector2.ZERO : set = _set_push #set作用是当pu
 func _ready() -> void:
 	pass # Replace with function body.
 
-
-
 func _physics_process(delta: float) -> void:
 	linear_velocity = push_direction * push_speed
-	
-	
 
+#玩家场景新增了一个pusharea区域，和雕像接触后改变雕像的push_direction
 func _set_push( value : Vector2):
+	print(value)
 	push_direction = value
-	print(push_direction)
 	if push_direction == Vector2.ZERO:
 		audio_stream_player_2d.stop()
 	else:
 		audio_stream_player_2d.play()
+		

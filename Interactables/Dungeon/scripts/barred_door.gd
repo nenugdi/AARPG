@@ -8,7 +8,7 @@ var is_open : bool = false
 func _ready() -> void:
 	pass # Replace with function body.
 
-
+#在D01地图中，将PressurePlate的两个信号绑定到open_door  close_door
 func open_door()->void:
 	animation_player.play("open_door")
 	

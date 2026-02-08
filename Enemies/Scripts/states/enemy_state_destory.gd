@@ -32,8 +32,7 @@ func Enter() ->void:
 	enemy.animation_player.animation_finished.connect(_on_animation_finished)
 	disable_hurt_box()
 	drop_items()
-	#此处将敌人死亡信息写入存档文件
-	enemy.is_live_data.set_value()
+
 	
 func Exit()->void:
 	enemy.invlunerable = false
@@ -68,7 +67,7 @@ func drop_items()->void:
 	for i in drops.size():
 		if drops[i]==null or drops[i].item == null:
 			continue
-		var drop_count : int = drops[i].get_drop_count()
+		var drop_count : int = drops[i].get_drop_count() #掉落多少个物品，随机数
 		for j in drop_count:
 			var drop : ItemPickup = PICKUP.instantiate() as ItemPickup
 			drop.item_data = drops[i].item

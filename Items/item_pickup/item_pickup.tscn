@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c14v8ysjenavm"]
+[gd_scene format=3 uid="uid://c14v8ysjenavm"]
 
 [ext_resource type="Script" uid="uid://bwrskr62rhdwf" path="res://Items/item_pickup/item_pickup.gd" id="1_pjtoe"]
 [ext_resource type="AudioStream" uid="uid://q1ik882qrxqi" path="res://Items/item_pickup/item_pickup.wav" id="2_c8lbn"]
@@ -10,6 +10,21 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_k6dju"]
 atlas = ExtResource("3_uwxn1")
 region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="Animation" id="Animation_b85t6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_gjn8h"]
 resource_name = "default"
@@ -27,56 +42,39 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -6), Vector2(0, 0), Vector2(0, -3), Vector2(0, 0), Vector2(0, -1), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_b85t6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pehic"]
 _data = {
 &"RESET": SubResource("Animation_b85t6"),
 &"default": SubResource("Animation_gjn8h")
 }
 
-[node name="ItemPickup" type="CharacterBody2D"]
+[node name="ItemPickup" type="CharacterBody2D" unique_id=472544888]
 collision_layer = 0
 collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_pjtoe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=127219020]
 shape = SubResource("CircleShape2D_c8lbn")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1558972838]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=772091834]
 shape = SubResource("CircleShape2D_c8lbn")
 
-[node name="Sprite2DShadow" type="Sprite2D" parent="."]
+[node name="Sprite2DShadow" type="Sprite2D" parent="." unique_id=991251519]
 modulate = Color(0, 0.039215688, 0, 1)
 position = Vector2(0, 7)
 scale = Vector2(0.56250006, 0.53124994)
 texture = ExtResource("2_xobfa")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1056817723]
 texture = SubResource("AtlasTexture_k6dju")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1119938953]
 stream = ExtResource("2_c8lbn")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_pehic")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1971227988]
+libraries/ = SubResource("AnimationLibrary_pehic")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

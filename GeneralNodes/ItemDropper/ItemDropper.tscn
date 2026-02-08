@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://p7jhh55b6kit"]
+
+[ext_resource type="Script" uid="uid://bec4wvap185nn" path="res://GeneralNodes/ItemDropper/item_dropper.gd" id="1_ncqb6"]
+[ext_resource type="AudioStream" uid="uid://brgb7foqxlmv" path="res://GeneralNodes/ItemDropper/dungeon_discovery.wav" id="2_j17rb"]
+[ext_resource type="Script" uid="uid://dgmglt5sp1pl2" path="res://GeneralNodes/PersistenDataHelper/persisten_data_handler.gd" id="2_ojlm4"]
+
+[node name="ItemDropper" type="Node2D" unique_id=823650829]
+script = ExtResource("1_ncqb6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=788591905]
+
+[node name="Label" type="Label" parent="Sprite2D" unique_id=2056759799]
+offset_left = -30.0
+offset_top = -42.0
+offset_right = 34.0
+offset_bottom = -19.0
+theme_override_colors/font_color = Color(1, 0.110000014, 0.110000014, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 35
+text = "物品掉落"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1882549545]
+stream = ExtResource("2_j17rb")
+
+[node name="PersistemDataHandler" type="Node" parent="." unique_id=572191039]
+script = ExtResource("2_ojlm4")
+metadata/_custom_type_script = "uid://dgmglt5sp1pl2"

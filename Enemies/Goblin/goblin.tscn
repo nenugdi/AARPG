@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cy1srx3hjijio"]
+[gd_scene format=3 uid="uid://cy1srx3hjijio"]
 
 [ext_resource type="Script" uid="uid://h2t5u64enadn" path="res://Enemies/Scripts/enemy.gd" id="1_lvhkj"]
 [ext_resource type="PackedScene" uid="uid://c50helwlwjq6u" path="res://GeneralNodes/HurtBox/HurtBox.tscn" id="2_t4jts"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://cywc1omqthfnj" path="res://Enemies/Scripts/states/enemy_state_wander.gd" id="10_a1tsi"]
 [ext_resource type="Script" uid="uid://b14yt28yreftg" path="res://Enemies/Scripts/states/enemy_state_destory.gd" id="11_ad7vh"]
 [ext_resource type="Script" uid="uid://dda2scqsmvxjq" path="res://Enemies/Scripts/drop_data.gd" id="12_ys2o2"]
+[ext_resource type="Resource" uid="uid://2ujot51vj0xp" path="res://Items/key_dungeon.tres" id="13_p257j"]
 [ext_resource type="Resource" uid="uid://eddky7n2put5" path="res://Items/gem.tres" id="13_t3vbn"]
 [ext_resource type="Script" uid="uid://cfhxj4muqvqh7" path="res://Enemies/Scripts/states/enemy_state_chase.gd" id="14_hvprn"]
 [ext_resource type="Resource" uid="uid://cqcublnkys3cv" path="res://Items/apple.tres" id="14_j3imk"]
@@ -681,13 +682,18 @@ _data = {
 [sub_resource type="Resource" id="Resource_yynal"]
 script = ExtResource("12_ys2o2")
 item = ExtResource("13_t3vbn")
-max_amount = 4
+max_amount = 2
 metadata/_custom_type_script = "uid://dda2scqsmvxjq"
 
 [sub_resource type="Resource" id="Resource_67htc"]
 script = ExtResource("12_ys2o2")
 item = ExtResource("14_j3imk")
 probability = 70.0
+metadata/_custom_type_script = "uid://dda2scqsmvxjq"
+
+[sub_resource type="Resource" id="Resource_ka2g0"]
+script = ExtResource("12_ys2o2")
+item = ExtResource("13_p257j")
 metadata/_custom_type_script = "uid://dda2scqsmvxjq"
 
 [sub_resource type="Animation" id="Animation_yynal"]
@@ -750,106 +756,103 @@ _data = {
 &"destory": SubResource("Animation_vjyi2")
 }
 
-[node name="Goblin" type="CharacterBody2D"]
+[node name="Goblin" type="CharacterBody2D" unique_id=1763320320]
 collision_layer = 256
 collision_mask = 16
+motion_mode = 1
 script = ExtResource("1_lvhkj")
 
-[node name="HurtBox" parent="." instance=ExtResource("2_t4jts")]
+[node name="HurtBox" parent="." unique_id=1840846713 instance=ExtResource("2_t4jts")]
 position = Vector2(0, -6)
 damage = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=79608619]
 shape = SubResource("CircleShape2D_2qn7y")
 debug_color = Color(1, 1, 0, 1)
 
-[node name="HitBox" parent="." instance=ExtResource("3_pcyyc")]
+[node name="HitBox" parent="." unique_id=224499087 instance=ExtResource("3_pcyyc")]
 position = Vector2(0, -6)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=369707126]
 shape = SubResource("CircleShape2D_2qn7y")
 debug_color = Color(0.70196074, 0.025047127, 0, 0.41960785)
 
-[node name="Sprite2DShadow" type="Sprite2D" parent="."]
+[node name="Sprite2DShadow" type="Sprite2D" parent="." unique_id=1675838464]
 modulate = Color(0.37, 0.0061666607, 0, 0)
 position = Vector2(0, -2)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("4_cu2p6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1437185404]
 position = Vector2(0, -19)
 texture = ExtResource("5_3xcr1")
 hframes = 8
 vframes = 3
 
-[node name="AttackHurtBox" parent="Sprite2D" instance=ExtResource("2_t4jts")]
+[node name="AttackHurtBox" parent="Sprite2D" unique_id=803207548 instance=ExtResource("2_t4jts")]
 position = Vector2(0, 11)
 monitoring = false
 damage = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/AttackHurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/AttackHurtBox" unique_id=658742908]
 self_modulate = Color(1, 1, 1, 0.24705882)
 shape = SubResource("CircleShape2D_2qn7y")
 debug_color = Color(0.7443918, 0.7443918, 0.68550813, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1473275441]
 position = Vector2(0, -1)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_wwfkb")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_pg00x")
-}
-autoplay = "idle_down"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=920905414]
+libraries/ = SubResource("AnimationLibrary_pg00x")
+autoplay = &"idle_down"
 
-[node name="EnemyStateMachine" type="Node2D" parent="."]
+[node name="EnemyStateMachine" type="Node2D" parent="." unique_id=1967285948]
 script = ExtResource("8_aln51")
 
-[node name="idle" type="Node2D" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
+[node name="idle" type="Node2D" parent="EnemyStateMachine" unique_id=1102313526 node_paths=PackedStringArray("after_idle_state")]
 script = ExtResource("9_l6iyu")
 after_idle_state = NodePath("../wander")
 
-[node name="wander" type="Node2D" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+[node name="wander" type="Node2D" parent="EnemyStateMachine" unique_id=2009804057 node_paths=PackedStringArray("next_state")]
 script = ExtResource("10_a1tsi")
 state_animation_duration = 0.7
 next_state = NodePath("../idle")
 
-[node name="destory" type="Node2D" parent="EnemyStateMachine"]
+[node name="destory" type="Node2D" parent="EnemyStateMachine" unique_id=50966913]
 script = ExtResource("11_ad7vh")
-drops = Array[ExtResource("12_ys2o2")]([SubResource("Resource_yynal"), SubResource("Resource_67htc")])
+drops = Array[ExtResource("12_ys2o2")]([SubResource("Resource_yynal"), SubResource("Resource_67htc"), SubResource("Resource_ka2g0")])
 
-[node name="stun" type="Node2D" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+[node name="stun" type="Node2D" parent="EnemyStateMachine" unique_id=1187924435 node_paths=PackedStringArray("next_state")]
 script = ExtResource("15_4i38r")
 next_state = NodePath("../chase")
 
-[node name="chase" type="Node2D" parent="EnemyStateMachine" node_paths=PackedStringArray("vision_area", "attack_area", "next_state")]
+[node name="chase" type="Node2D" parent="EnemyStateMachine" unique_id=1376830869 node_paths=PackedStringArray("vision_area", "attack_area", "next_state")]
 script = ExtResource("14_hvprn")
 vision_area = NodePath("../../VisionArea")
 attack_area = NodePath("../../Sprite2D/AttackHurtBox")
 next_state = NodePath("../idle")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=862670362]
 max_polyphony = 4
 
-[node name="DestoryEffectSprite" type="Sprite2D" parent="."]
+[node name="DestoryEffectSprite" type="Sprite2D" parent="." unique_id=1394574342]
 visible = false
 position = Vector2(0, -10)
 texture = ExtResource("16_xlsu4")
 hframes = 6
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DestoryEffectSprite"]
-libraries = {
-&"": SubResource("AnimationLibrary_67htc")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DestoryEffectSprite" unique_id=306868027]
+libraries/ = SubResource("AnimationLibrary_67htc")
 
-[node name="IsLive" parent="." instance=ExtResource("17_kvyx1")]
+[node name="IsLive" parent="." unique_id=346424236 instance=ExtResource("17_kvyx1")]
 
-[node name="VisionArea" parent="." instance=ExtResource("16_r3i0u")]
+[node name="VisionArea" parent="." unique_id=1396546977 instance=ExtResource("16_r3i0u")]
 position = Vector2(0, -7)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VisionArea"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VisionArea" unique_id=460020187]
 polygon = PackedVector2Array(-16, 0, 16, 0, 128, 128, -128, 128)
 
-[node name="Polygon2D" type="Polygon2D" parent="VisionArea"]
+[node name="Polygon2D" type="Polygon2D" parent="VisionArea" unique_id=1094189193]
 position = Vector2(0, 7)
